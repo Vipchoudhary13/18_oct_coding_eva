@@ -5,18 +5,17 @@ async function searchNews(){
     let data = await res.json();
     console.log("data:", data);
 
-    // news.append(data);
-
     appendNews(data.sources);
 };
-// searchNews()
+searchNews()
 
 function appendNews(news_data){
     
-    news_data.forEach(({sources}) =>{
-        console.log(sources);
+    news_data.forEach(function(newses){
+        let p = document.createElement("p");
+        p.innerText = newses.sources;
 
-        news.append(sources);
+        news.append(p);
     })
 }
 
